@@ -60,4 +60,27 @@ book_router.get('/:id', (req, res) => {
     })
 })
 
+
+book_router.post('/', (req, res) => {
+    Book.create(req.body)
+    .then(() => {
+        res.send('created')
+    })
+})
+
+book_router.put('/:id', (req, res) => {
+    Book.findByIdAndUpdate(req.params.id)
+    .then(() => {
+        res.send('updated')
+    })
+})
+
+
+book_router.delete('/:id', (req, res) => {
+    Book.findByIdAndDelete(req.params.id)
+    .then(() => {
+        res.send('deleted')
+    })
+})
+
 module.exports = book_router
