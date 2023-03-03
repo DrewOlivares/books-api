@@ -1,6 +1,7 @@
 // Dependencies
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 // Configuration
 require('dotenv').config()
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: true}))
 mongoose.set('strictQuery', true)
 mongoose.connect(MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('Connected!'))
+app.use(cors())
 
 // Routes and contoller
 app.get('/', (req, res)=>{

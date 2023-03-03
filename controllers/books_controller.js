@@ -69,7 +69,7 @@ book_router.post('/', (req, res) => {
 })
 
 book_router.put('/:id', (req, res) => {
-    Book.findByIdAndUpdate(req.params.id)
+    Book.findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
         res.send('updated')
     })
